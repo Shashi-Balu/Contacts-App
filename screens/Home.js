@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
 import * as Contacts from "expo-contacts";
 import { ScrollView } from "react-native-gesture-handler";
 
@@ -25,6 +25,7 @@ export default function Home({ navigation }) {
                 Contacts.Fields.FirstName,
                 Contacts.Fields.LastName,
                 Contacts.Fields.PhoneNumbers,
+                Contacts.Fields.Image,
             ],
         });
         if (data.length > 0) {
@@ -34,12 +35,12 @@ export default function Home({ navigation }) {
 
     const pressHandler = (contact) => {
         navigation.navigate("ContactDetails", {
-            name: contact.firstName + " " + contact.lastName,
+            name: contact.firstName + " " + contact.lastName || "NA",
             phoneNumber: contact.phoneNumbers[0]?.number || "N/A",
+            image: contact.image || null,
         });
     };
 
-    console.log(contacts);
     return (
         <View>
             <ScrollView>
@@ -48,6 +49,12 @@ export default function Home({ navigation }) {
                         <Text style={styles.text} key={contact.id}>
                             {contact.name} {contact.phoneNumber}
                         </Text>
+                        {contact.imageAvailable && (
+                            <Image
+                                source={{ uri: contact.image.uri }}
+                                style={{ width: 50, height: 50 }}
+                            />
+                        )}
                     </TouchableOpacity>
                 ))}
             </ScrollView>
