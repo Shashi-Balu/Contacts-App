@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import * as Contacts from "expo-contacts";
-// import * as Permissions from "expo-permissions";
 import { ScrollView } from "react-native-gesture-handler";
-import { Permissions } from "expo";
 
-export default function Home() {
+export default function Home({ navigation }) {
     const [contacts, setContacts] = useState([]);
 
     useEffect(() => {
@@ -22,25 +20,33 @@ export default function Home() {
     };
 
     const fetchContacts = async () => {
-        const { data } = await Contacts.getContactsAsync();
+        const { data } = await Contacts.getContactsAsync({
+            fields: [
+                Contacts.Fields.FirstName,
+                Contacts.Fields.LastName,
+                Contacts.Fields.PhoneNumbers,
+            ],
+        });
         if (data.length > 0) {
             setContacts(data);
         }
     };
 
     const pressHandler = (contact) => {
-        navigation.navigate("ContactDetails", contact);
+        navigation.navigate("ContactDetails", {
+            name: contact.firstName + " " + contact.lastName,
+            phoneNumber: contact.phoneNumbers[0]?.number || "N/A",
+        });
     };
 
     console.log(contacts);
     return (
         <View>
-            {/* Display contacts */}
             <ScrollView>
                 {contacts.map((contact) => (
                     <TouchableOpacity onPress={() => pressHandler(contact)}>
                         <Text style={styles.text} key={contact.id}>
-                            {contact.name}
+                            {contact.name} {contact.phoneNumber}
                         </Text>
                     </TouchableOpacity>
                 ))}
@@ -51,6 +57,6 @@ export default function Home() {
 
 const styles = StyleSheet.create({
     text: {
-        color: "red",
+        color: "coral",
     },
 });
