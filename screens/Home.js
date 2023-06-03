@@ -29,13 +29,20 @@ export default function Home({ navigation }) {
             ],
         });
         if (data.length > 0) {
-            setContacts(data);
+            const filteredContacts = data.filter(
+                (contact) =>
+                    contact.firstName && contact.phoneNumbers && contact.phoneNumbers.length > 0
+            );
+            setContacts(filteredContacts);
         }
     };
 
     const pressHandler = (contact) => {
         navigation.navigate("ContactDetails", {
-            name: contact.firstName + " " + contact.lastName || "NA",
+            name:
+                `${contact.firstName}${contact.middleName ? ` ${contact.middleName}` : ""}${
+                    contact.lastName ? ` ${contact.lastName}` : ""
+                }` || "NA",
             phoneNumber: contact.phoneNumbers[0]?.number || "N/A",
             image: contact.image || null,
         });
