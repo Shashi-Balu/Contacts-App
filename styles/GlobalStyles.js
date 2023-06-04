@@ -1,17 +1,44 @@
 import { StyleSheet } from "react-native";
+
+//variables
+const lightGray = "#ddd";
+const mediumDarkGray = "#444";
+const darkGray = "#999";
+const mainBlue = "#30A2FF";
+
 export const globalStyles = StyleSheet.create({
+    //styles of Home.js
     inputTextContainer: {
         flexDirection: "row",
         margin: 20,
-        backgroundColor: "#ddd",
+        backgroundColor: lightGray,
         alignItems: "center",
         borderRadius: 50,
     },
-    contactText: {
-        color: "#444",
+
+    searchStyle: {
+        padding: 10,
+    },
+
+    searchStyle: {
+        padding: 10,
+    },
+
+    inputText: {
+        padding: 5,
         fontSize: 16,
-        fontWeight: "bold",
-        marginLeft: 12,
+        width: 250,
+        color: darkGray,
+        paddingHorizontal: 15,
+    },
+
+    iconClose: {
+        marginLeft: -10,
+    },
+
+    contactsLengthFound: {
+        color: mediumDarkGray,
+        marginLeft: 30,
     },
 
     contactContainer: {
@@ -20,20 +47,24 @@ export const globalStyles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
     },
-    inputText: {
-        padding: 5,
-        fontSize: 16,
-        width: 310,
 
-        color: "#999",
-        paddingHorizontal: 15,
+    contactImages: {
+        width: 50,
+        height: 50,
+        borderRadius: 40,
     },
-    searchStyle: {
-        padding: 10,
+
+    text: {
+        color: mediumDarkGray,
+        fontSize: 16,
+        fontWeight: "bold",
+        marginLeft: 12,
     },
-    phoneNumberContainerStyle: {
-        flexDirection: "row",
-        justifyContent: "space-between",
+
+    //styles of ContactDetails.js
+    backgroundImage: {
+        backgroundColor: mainBlue,
+        padding: 40,
     },
     contactImage: {
         width: 80,
@@ -41,22 +72,15 @@ export const globalStyles = StyleSheet.create({
         borderRadius: 50,
         backgroundColor: "red",
     },
-    contactImages: {
-        width: 50,
-        height: 50,
-        borderRadius: 40,
+
+    circle: {
+        color: mediumDarkGray,
     },
     nameStyle: {
         marginTop: 10,
         fontSize: 25,
         fontWeight: "bold",
-        color: "#444",
-    },
-
-    phoneNumberStyle: {
-        fontSize: 16,
-        fontWeight: "500",
-        marginBottom: 30,
+        color: mediumDarkGray,
     },
 
     callStyle: {
@@ -65,49 +89,25 @@ export const globalStyles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
     },
+
+    phoneNumberContainerStyle: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+    },
+
+    phoneNumberStyle: {
+        fontSize: 16,
+        fontWeight: "500",
+        marginBottom: 30,
+    },
     callIcon: {
         marginLeft: 150,
     },
-    backgroundImage: {
-        backgroundColor: "#30A2FF",
-        padding: 40,
-    },
-    circle: {
-        color: "#444",
-    },
-    inputTextContainer: {
-        flexDirection: "row",
-        margin: 20,
-        backgroundColor: "#ddd",
-        alignItems: "center",
-        borderRadius: 50,
-    },
-    text: {
-        color: "#444",
+
+    contactText: {
+        color: mediumDarkGray,
         fontSize: 16,
         fontWeight: "bold",
         marginLeft: 12,
-    },
-
-    contactContainer: {
-        padding: 8,
-        margin: 8,
-        flexDirection: "row",
-        alignItems: "center",
-    },
-    inputText: {
-        padding: 5,
-        fontSize: 16,
-        width: 260,
-
-        color: "#999",
-        paddingHorizontal: 15,
-    },
-    searchStyle: {
-        padding: 10,
-    },
-
-    iconClose: {
-        marginLeft: -10,
     },
 });
