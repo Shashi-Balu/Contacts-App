@@ -15,7 +15,7 @@ export default function ContactDetails({ navigation }) {
 
     // Handler for making a phone call
     const handlePhoneCall = () => {
-        phoneNumber.map((number) => Linking.openURL(`tel:${number}`));
+        phoneNumber?.map((number) => Linking.openURL(`tel:${number}`));
     };
 
     return (
@@ -39,7 +39,7 @@ export default function ContactDetails({ navigation }) {
             <View style={globalStyles.callStyle}>
                 <View>
                     {/* Iterating over the phone numbers */}
-                    {phoneNumber.map((number) => (
+                    {phoneNumber?.map((number) => (
                         <View>
                             {/* Displaying phone number type */}
                             <Text>Phone | Mobile</Text>

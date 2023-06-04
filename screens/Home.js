@@ -68,7 +68,7 @@ export default function Home({ navigation }) {
 
     const pressHandler = (contact) => {
         // Extract the phone numbers from the contact's phoneNumbers array
-        const phoneNumbers = contact.phoneNumbers.map((phoneNumber) => phoneNumber.number);
+        const phoneNumbers = contact.phoneNumbers?.map((phoneNumber) => phoneNumber.number);
 
         /* The parameter is the name, phonneNumbers object and image of the destination screen/component to navigate to.
           In this case, it's "ContactDetails".
