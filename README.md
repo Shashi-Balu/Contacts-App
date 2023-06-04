@@ -18,9 +18,9 @@ Link to the device's default contact app to initiate a call. Simply tap on the p
 
 ## The project
 ### 1. create the project: 
- >> npx create-expo-app contacts-app
- >> cd contacts-app
- >> npx expo start
+ >>> npx create-expo-app contacts-app
+ >>> cd contacts-app
+ >>> npx expo start
 ### 2. navigate between different screens, we need to install dependencies
  >> npm i react-native
  >> npm i react-navigation-stack
